@@ -3,7 +3,7 @@ name: Build and Deploy to IIS (.NET Core)
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
