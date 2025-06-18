@@ -35,29 +35,30 @@ jobs:
         shell: powershell
 
 
-  # deploy:
-  #   name: Deploy to IIS
-  #   needs: build
-  #   runs-on: self-hosted
+  deploy:
+    name: Deploy to IIS
+    needs: build
+    runs-on: self-hosted
 
-    # steps:
-    #   - name: Clean IIS Target Folder
-    #     run: |
-    #       $target = "C:\HelloWorld"
-    #       if (Test-Path $target) {
-    #         Remove-Item "$target\*" -Recurse -Force
-    #       } else {
-    #         New-Item -Path $target -ItemType Directory
-    #       }
-    #     shell: powershell
+    steps:
+      - name: Clean IIS Target Folder
+        run: |
+          $target = "C:\HelloWorld"
+          if (Test-Path $target) {
+            Remove-Item "$target\*" -Recurse -Force
+          } else {
+            New-Item -Path $target -ItemType Directory
+          }
+        shell: powershell
 
-    #   - name: Copy Published Files to IIS Folder
-    #     run: |
-    #       $source = "D:\dotnetcoreapp\publish"
-    #       $target = "C:\HelloWorld"
-    #       xcopy "$source\*" "$target\" /E /Y /Q
-    #     shell: powershell
+      - name: Copy Published Files to IIS Folder
+        run: |
+          $source = "D:\dotnetcoreapp\publish"
+          $target = "C:\HelloWorld"
+          xcopy "$source\*" "$target\" /E /Y /Q
+        shell: powershell
 
-    #   - name: Restart IIS (Optional)
-    #     run: iisreset
-    #     shell: powershell
+      - name: Restart IIS (Optional)
+        run: iisreset
+        shell: powershell
+    
