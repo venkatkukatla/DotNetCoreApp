@@ -58,7 +58,7 @@ jobs:
           xcopy "$source\*" "$target\" /E /Y /Q
         shell: powershell
 
-      - name: Restart IIS (Optional)
-        run: iisreset
-        shell: powershell
+      # - name: Restart IIS (Optional)
+      #   run: iisreset
+      #   shell: powershell
     
