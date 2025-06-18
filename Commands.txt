@@ -1,0 +1,25 @@
+Its succesfully Deployed to IIS webserver in my local Laptop
+
+
+dotnet restore hello-world-api/hello-world-api.csproj
+dotnet build hello-world-api/hello-world-api.csproj -c Release
+dotnet publish hello-world-api/hello-world-api.csproj -c Release -o /c/HelloWorld
+
+Does dotnet publish automatically run restore and build?
+Yes  by default, the dotnet publish command will:
+
+Run dotnet restore to get all NuGet dependencies
+
+Run dotnet build to compile the app
+
+Then publish  to copy files for deployment
+
+
+dotnet publish hello-world-api/hello-world-api.csproj -c Release -o /c/HelloWorld
+
+
+
+dotnet clean hello-world-api/hello-world-api.csproj && \
+dotnet restore hello-world-api/hello-world-api.csproj && \
+dotnet build hello-world-api/hello-world-api.csproj -c Release && \
+dotnet publish hello-world-api/hello-world-api.csproj -c Release -o /c/HelloWorld
