@@ -57,6 +57,9 @@ jobs:
           Stop-Website -Name "HelloWorldApi"
         shell: powershell
 
+         Start-Sleep -Seconds 10
+
+
       - name: Copy Published Files to IIS Folder
         run: |
           $source = "D:\dotnetcoreapp\publish"
