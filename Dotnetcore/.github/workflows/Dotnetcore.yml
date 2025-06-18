@@ -40,6 +40,7 @@ jobs:
     needs: build
     runs-on: self-hosted
 
+
     steps:
       # - name: Clean IIS Target Folder
       #   run: |
