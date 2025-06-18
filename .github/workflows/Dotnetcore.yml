@@ -41,15 +41,15 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Clean IIS Target Folder
-        run: |
-          $target = "C:\HelloWorld"
-          if (Test-Path $target) {
-            Remove-Item "$target\*" -Recurse -Force
-          } else {
-            New-Item -Path $target -ItemType Directory
-          }
-        shell: powershell
+      # - name: Clean IIS Target Folder
+      #   run: |
+      #     $target = "C:\HelloWorld"
+      #     if (Test-Path $target) {
+      #       Remove-Item "$target\*" -Recurse -Force
+      #     } else {
+      #       New-Item -Path $target -ItemType Directory
+      #     }
+      #   shell: powershell
 
       - name: Copy Published Files to IIS Folder
         run: |
