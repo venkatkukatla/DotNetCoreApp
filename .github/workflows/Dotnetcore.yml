@@ -50,12 +50,24 @@ jobs:
       #       New-Item -Path $target -ItemType Directory
       #     }
       #   shell: powershell
+      
+      - name: Stop IIS Website
+        run: |
+          Import-Module WebAdministration
+          Stop-Website -Name "HelloWorldApi"
+        shell: powershell
 
       - name: Copy Published Files to IIS Folder
         run: |
           $source = "D:\dotnetcoreapp\publish"
           $target = "C:\HelloWorld"
           xcopy "$source\*" "$target\" /E /Y /Q
+        shell: powershell
+
+      - name: Start IIS Website
+        run: |
+          Import-Module WebAdministration
+          Start-Website -Name "HelloWorldApi"
         shell: powershell
 
       # - name: Restart IIS (Optional)
