@@ -49,7 +49,7 @@ namespace hello_world_api.Controllers
         [HttpGet]
         public string Get()
         {
-            return "Welcome to DevOps World!";
+            return "Welcome to 2025 DevOps World!";
         }
     }
 }
